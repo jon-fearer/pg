@@ -524,11 +524,11 @@ func (db *baseDB) Ping(ctx context.Context) error {
 }
 
 // Model returns new query for the model.
-func (db *baseDB) Model(model ...interface{}) *orm.Query {
+func (db *baseDB) Model(model ...interface{}) orm.QueryInterface {
 	return orm.NewQuery(db.db, model...)
 }
 
-func (db *baseDB) ModelContext(c context.Context, model ...interface{}) *orm.Query {
+func (db *baseDB) ModelContext(c context.Context, model ...interface{}) orm.QueryInterface {
 	return orm.NewQueryContext(c, db.db, model...)
 }
 

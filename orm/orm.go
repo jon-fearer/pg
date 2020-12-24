@@ -38,8 +38,8 @@ type QueryCommand interface {
 
 // DB is a common interface for pg.DB and pg.Tx types.
 type DB interface {
-	Model(model ...interface{}) *Query
-	ModelContext(c context.Context, model ...interface{}) *Query
+	Model(model ...interface{}) QueryInterface
+	ModelContext(c context.Context, model ...interface{}) QueryInterface
 
 	Exec(query interface{}, params ...interface{}) (Result, error)
 	ExecContext(c context.Context, query interface{}, params ...interface{}) (Result, error)
